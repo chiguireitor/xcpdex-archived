@@ -67,7 +67,7 @@ class OrderController extends Controller
              */
             if ( $this->guardAgainstInsufficientBitcoinBalance($source) )
             {
-                return redirect()->route('order')->with('warning', 'Insufficient BTC at this address. At least 0.0001 BTC is required for fees.');
+                return redirect()->route('order')->with('warning', 'Insufficient BTC at this address. At least 0.0001 BTC is required for fees.')->withInput();
             }
 
             /**
@@ -77,7 +77,7 @@ class OrderController extends Controller
             if ( $this->guardAgainstInsufficientAssetBalance($source, $give_asset, $give_quantity) )
             {
                 $give_quantity = unSatoshi($give_quantity);
-                return redirect()->route('order')->with('warning', "Insufficient {$give_asset} at this address. At least {$give_quantity} is required.");
+                return redirect()->route('order')->with('warning', "Insufficient {$give_asset} at this address. At least {$give_quantity} is required.")->withInput();
             }
 
             /**
@@ -106,7 +106,7 @@ class OrderController extends Controller
         /**
         * Unknown Address
         */
-        return redirect()->route('order')->with('warning', "Your address: {$source} does not appear to be an actively used.");
+        return redirect()->route('order')->with('warning', "Your address: {$source} does not appear to be an actively used.")->withInput();
     }
 
     // Order Result
