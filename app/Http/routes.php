@@ -1,10 +1,11 @@
 <?php
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::group(['middleware' => ['web']], function () {
+
+    Route::get('/', [
+        'as'   => 'home',
+        'uses' => 'MarketController@getHomepage',
+    ]);
 
     Route::get('markets', [
         'as'   => 'markets',

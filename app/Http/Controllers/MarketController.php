@@ -25,6 +25,23 @@ class MarketController extends Controller
         $this->counterblock->authentication(env('CB_USER', 'rpc'), env('CB_PASS', '1234'));
     }
 
+    // Dex Homepage
+
+    public function getHomepage()
+    {
+        $markets = $this->counterblock->execute('get_markets_list');
+
+        foreach ($markets as $key => $row)
+        {
+            $volume[$key] = $row['volume'];
+        }
+        array_multisort($volume, SORT_DESC, $markets);
+
+        $markets = array_filter($markets, function ($x) { return $x['volume'] > 0; });
+
+        return view('market', compact('markets'));
+    }
+
     // Markets JSON
 
     public function getMarkets()
