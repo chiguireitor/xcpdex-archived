@@ -17,7 +17,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="http://counterparty.io/docs/buy_and_sell_assets_on_the_dex/" target="_blank">Tutorial</a></li>
-                <li><a href="http://coinmarketcap.com/currencies/counterparty/#markets" target="_blank">Markets</a></li>
+                <li><a href="http://coinmarketcap.com/currencies/counterparty/?markets=all#markets" target="_blank">Markets</a></li>
             </ul>
         </div>
     </div>

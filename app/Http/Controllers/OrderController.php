@@ -117,9 +117,9 @@ class OrderController extends Controller
         }
 
         /**
-        * Unknown Address
+        * Unknown Address / Result
         */
-        return redirect()->route('order')->withInput()->with('warning', "Your address: {$source} does not appear to be an actively used.");
+        return redirect()->route('order')->withInput()->with('warning', "Your address: {$source} does not appear to be actively used.");
     }
 
     // Order Result

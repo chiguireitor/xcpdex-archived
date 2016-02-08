@@ -42,11 +42,29 @@ class AssetController extends Controller
 
         if ( ! empty($result) )
         {
+            /**
+             * Get Orders on Asset
+             */
             $orders = $this->getOrders($asset); 
+
+            /**
+             * Get Buy Orders + Reverse Order
+             */
             $buy_orders = array_reverse($this->filterOrders($orders, 'BUY'));
+
+            /**
+             * Get Sell Orders
+             */
             $sell_orders = $this->filterOrders($orders, 'SELL');
+
+            /**
+             * Get Old Matches
+             */
             $order_matches = $this->counterblock->execute('get_trade_history', ['asset1' => $asset, 'asset2' => 'XCP']);
 
+            /**
+             * Deliver the Goods
+             */
             return view('asset', compact('asset','buy_orders','sell_orders','order_matches'));
         }
 

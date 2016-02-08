@@ -31,12 +31,18 @@ class MarketController extends Controller
     {
         $markets = $this->counterblock->execute('get_markets_list');
 
+        /**
+         * Sort by Volume
+         */
         foreach ($markets as $key => $row)
         {
             $volume[$key] = $row['volume'];
         }
         array_multisort($volume, SORT_DESC, $markets);
 
+        /**
+         * Hide Zero Volume
+         */
         $markets = array_filter($markets, function ($x) { return $x['volume'] > 0; });
 
         return view('market', compact('markets'));

@@ -46,6 +46,11 @@ class MatchController extends Controller
 
     public function postMatch(InstantMatchRequest $request)
     {
+        /**
+         * This is a simple redirect
+         * for now, but it would be
+         * cool to filter and match.
+         */
         return redirect()->route('asset', ['asset' => $request->asset]);
     }
 }
