@@ -4,6 +4,8 @@ XCP DEX is a Counterparty (XCP) Decentralized Exchange Explorer.
 
 It will also help you generate a raw order tx outside of CW.
 
+Demo: https://xcpdex.com/
+
 XCP DEX is built using Laravel 5.2 (a PHP framework) and relies heavily on the use of public development servers.
 
 By default, it uses Coindaddy.io, but any Counterparty API can be switched in through the .env file.
