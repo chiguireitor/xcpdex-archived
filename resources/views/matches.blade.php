@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
-@section('title', 'Recent Matches')
+@section('title', 'Lastest Order Matches')
 
 @section('content')
 
     <div class="page-header">
-        <h1><small><i class="glyphicon glyphicon-time"></i></small> Recent Matches <small class="hidden-xs">Last 50</small></h1>
+        <h1><small><i class="glyphicon glyphicon-transfer"></i></small> Lastest Matches <small>Last 50</small></h1>
     </div>
 
     @include('partials.matches-table', ['matches' => $matches])

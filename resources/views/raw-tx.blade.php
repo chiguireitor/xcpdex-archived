@@ -48,10 +48,10 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <a href="https://wallet.counterwallet.io/" role="button" class="btn btn-lg btn-block btn-primary" target="_blank"><small><i class="glyphicon glyphicon-link"></i></small> Couterwallet 1</a>
+                        <a href="https://wallet.counterwallet.io/" role="button" class="btn btn-lg btn-block btn-primary" target="_blank"><small><i class="glyphicon glyphicon-link"></i></small> Counterwallet 1</a>
                     </div>
                     <div class="form-group">
-                        <a href="https://counterwallet.coindaddy.io/" role="button" class="btn btn-lg btn-block btn-primary" target="_blank"><small><i class="glyphicon glyphicon-link"></i></small> Couterwallet 2</a>
+                        <a href="https://counterwallet.coindaddy.io/" role="button" class="btn btn-lg btn-block btn-primary" target="_blank"><small><i class="glyphicon glyphicon-link"></i></small> Counterwallet 2</a>
                     </div>
                 </div>
             </div>
