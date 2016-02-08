@@ -13,3 +13,8 @@ $('#give_asset .typeahead').typeahead(null, {
   name: 'markets',
   source: markets
 });
+
+$('#getMarketInput .typeahead').typeahead(null, {
+  name: 'markets',
+  source: markets
+});

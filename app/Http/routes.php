@@ -6,19 +6,14 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['web']], function () {
 
+    Route::get('markets', [
+        'as'   => 'markets',
+        'uses' => 'MarketController@getMarkets',
+    ]);
+
     Route::get('order', [
         'as'   => 'order',
         'uses' => 'OrderController@getOrder',
-    ]);
-
-    Route::get('markets', [
-        'as'   => 'markets',
-        'uses' => 'OrderController@getMarkets',
-    ]);
-
-    Route::get('order/raw-tx', [
-        'as'   => 'order::result',
-        'uses' => 'OrderController@getRawTx',
     ]);
 
     Route::post('order', [
@@ -26,19 +21,24 @@ Route::group(['middleware' => ['web']], function () {
         'uses' => 'OrderController@postOrder',
     ]);
 
+    Route::get('order/raw-tx', [
+        'as'   => 'order::result',
+        'uses' => 'OrderController@getResult',
+    ]);
+
     Route::get('match', [
         'as'   => 'match',
-        'uses' => 'OrderController@getMatch',
+        'uses' => 'MatchController@getMatch',
     ]);
 
     Route::post('match', [
-        'as'   => 'match',
-        'uses' => 'OrderController@postMatch',
+        'as'   => 'match::find',
+        'uses' => 'MatchController@postMatch',
     ]);
 
     Route::get('{asset}', [
         'as'   => 'asset',
-        'uses' => 'AssetController@show',
+        'uses' => 'AssetController@getAsset',
     ]);
 
 });

@@ -111,34 +111,12 @@ class OrderController extends Controller
 
     // Order Result
 
-    public function getRawTx()
+    public function getResult()
     {
         /**
          * Not stored, don't reload
          */
         return view('raw-tx');
-    }
-
-    // Markets JSON
-
-    public function getMarkets()
-    {
-        /**
-         * Used to generate JSON
-         * of available markets.
-         *
-         * See: js/prefetch.js
-         */
-        $markets = $this->counterblock->execute('get_markets_list');
-
-        $available = array();
-
-        foreach ( $markets as $market )
-        {
-            $available[] = $market['base_asset'];
-        }
-
-        return $available;
     }
 
     // GUARDS
