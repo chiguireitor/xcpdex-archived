@@ -4,10 +4,10 @@
         <tr>
             <th>Asset Name</th>
             <th>Supply</th>
+            <th>24h Volume</th>
             <th>Last Price</th>
             <th>24h Change</th>
             <th>24h High</th>
-            <th>24h Volume</th>
         </tr>
     </thead>
     <tbody>

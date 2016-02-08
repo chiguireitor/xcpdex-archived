@@ -7,7 +7,7 @@
 @section('content')
 
     <div class="page-header">
-        <h1><small><i class="glyphicon glyphicon-equalizer"></i></small> Exchange Volume <small class="hidden-xs">Last 24 hours</small></h1>
+        <h1><small><i class="glyphicon glyphicon-equalizer"></i></small> Top Chart <small class="hidden-xs">Last 24 hours</small></h1>
     </div>
 
     @include('partials.market-table', ['markets' => $markets])
