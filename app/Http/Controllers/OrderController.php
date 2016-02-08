@@ -31,9 +31,9 @@ class OrderController extends Controller
 
     // Order Form
 
-    public function getOrder()
+    public function getOrder(Request $request)
     {
-        return view('order');
+        return view('order', ['request' => $request]);
     }
 
     // Create Order

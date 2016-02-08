@@ -8,7 +8,8 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
         "fguillot/json-rpc": "0.0.1",
-        "anlutro/curl": "^1.4"
+        "anlutro/curl": "^1.4",
+        "spatie/laravel-responsecache": "^1.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

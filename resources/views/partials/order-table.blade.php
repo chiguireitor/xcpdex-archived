@@ -2,6 +2,7 @@
     <h3>{{ $title }} Orders <small>{{ count($orders) }} Found</small></h3>
 </div>
 
+<div class="table-responsive">
 <table class="table table-hover">
     <thead>
         <tr>
@@ -21,3 +22,4 @@
     @endif
     </tbody>
 </table>
+</div>

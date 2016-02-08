@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
-@section('title', "{$asset} - Buy &amp; Sell on the Bitcoin Blockchain")
+@section('title', "{$asset} - Decentralized Order Book")
+
+@section('description', 'There are ' . ( count($sell_orders) + count($buy_orders) ) . ' buy or sell orders for ' . $asset . ' on the Counterparty XCP decentralized exchange. ')
 
 @section('content')
 
@@ -22,10 +24,6 @@
         <h2><small><i class="glyphicon glyphicon-calendar"></i></small> Trade History</h2>
     </div>
 
-    <div class="row">
-        <div class="col-sm-6">
-            @include('partials.history-table', ['orders' => $order_matches])
-        </div>
-    </div>
+    @include('partials.history-table', ['orders' => $order_matches])
 
 @endsection

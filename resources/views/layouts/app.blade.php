@@ -12,6 +12,8 @@
     <link href="{{ url('css/dashboard.css') }}" rel="stylesheet">
     <link href="{{ url('css/typeahead.css') }}" rel="stylesheet">
 
+    @yield('meta')
+
   </head>
 
   <body>

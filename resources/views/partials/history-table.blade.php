@@ -1,10 +1,11 @@
+<div class="table-responsive">
 <table class="table table-hover">
     <thead>
         <tr>
-            <th>Date</th>
+            <th>Date / Block Index</th>
             <th>Price</th>
-            <th>{{ $asset }}</th>
-            <th>XCP</th>
+            <th>Amount</th>
+            <th>Total</th>
         </tr>
     </thead>
     <tbody>
@@ -15,3 +16,4 @@
     @endif
     </tbody>
 </table>
+</div>

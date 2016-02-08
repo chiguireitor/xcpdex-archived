@@ -1,12 +1,13 @@
+<div class="table-responsive">
 <table class="table table-hover">
     <thead>
         <tr>
             <th>Asset Name</th>
-            <th>Last Price (XCP)</th>
+            <th>Supply</th>
+            <th>Last Price</th>
             <th>24h Change</th>
             <th>24h High</th>
-            <th>Supply</th>
-            <th>Volume (XCP)</th>
+            <th>24h Volume</th>
         </tr>
     </thead>
     <tbody>
@@ -17,3 +18,4 @@
     @endif
     </tbody>
 </table>
+</div>
