@@ -1,7 +1,7 @@
 var markets = new Bloodhound({
   datumTokenizer: Bloodhound.tokenizers.whitespace,
   queryTokenizer: Bloodhound.tokenizers.whitespace,
-  prefetch: 'https://xcpdex.com/markets'
+  prefetch: 'https://xcpdex.com/json'
 });
 
 $('#get_asset .typeahead').typeahead(null, {

@@ -12,6 +12,29 @@ use App\Http\Controllers\Controller;
 
 class MatchController extends Controller
 {
+    // New Up
+
+    public function __construct()
+    {
+        /**
+         * API Connections
+         *
+         * Setting: .env
+         * Default: coindaddy.io
+         */
+        $this->counterblock = new Client(env('CB_API', 'http://public.coindaddy.io:4100/api/'));
+        $this->counterblock->authentication(env('CB_USER', 'rpc'), env('CB_PASS', '1234'));
+    }
+
+    // New Matches
+
+    public function getMatches()
+    {
+        $matches = $this->counterblock->execute('get_trade_history');
+
+        return view('matches', ['matches' => $matches]);
+    }
+
     // Match Form
 
     public function getMatch()

@@ -91,6 +91,10 @@ body {
   word-wrap: break-word;
 }
 
+#hitbtc-ticker {
+  margin-left: -5px;
+}
+
 label {
   color: #333;
   font-size: 20px;

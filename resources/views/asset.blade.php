@@ -7,7 +7,7 @@
 @section('content')
 
     <div class="page-header">
-        <h1><small><i class="glyphicon glyphicon-list-alt"></i></small> {{ $asset }} <small>Order Book</small></h1>
+        <h1><small><i class="glyphicon glyphicon-list-alt"></i></small> {{ $asset }} <small class="hidden-xs">Order Book</small></h1>
     </div>
 
     <div class="row">

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Instant Match')
+@section('title', 'Order Match')
 
 @section('description', 'Find orders on the Dex that match your criteria and match them with only a few steps.')
 
@@ -12,7 +12,7 @@
 @section('content')
 
     <div class="page-header">
-        <h1><small><i class="glyphicon glyphicon-flash"></i></small> Instant Match</h1>
+        <h1><small><i class="glyphicon glyphicon-search"></i></small> Order Match</h1>
     </div>
 
     @include('forms.match')

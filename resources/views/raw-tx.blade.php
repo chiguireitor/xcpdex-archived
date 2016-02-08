@@ -13,6 +13,18 @@
 
         @if ( session('success') )
 
+            <div class="alert alert-warning">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <p><b>Raw Transaction:</b></p>
+                        <p>{{ session('success') }}</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl={{ session('success') }}" title="Unsigned Transaction" class="img-thumbnail" />
+                    </div>
+                </div>
+            </div>
+
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
@@ -26,13 +38,6 @@
                 </div>
             </div>
 
-            <div class="alert alert-warning">
-                <b>Raw Transaction:</b>
-                <p>{{ session('success') }}</p>
-            </div>
-
-            <hr />
-
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
@@ -43,10 +48,10 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <a href="https://wallet.counterwallet.io/" role="button" class="btn btn-lg btn-block btn-primary" target="_blank"><small><i class="glyphicon glyphicon-link"></i></small> Couterwallet</a>
+                        <a href="https://wallet.counterwallet.io/" role="button" class="btn btn-lg btn-block btn-primary" target="_blank"><small><i class="glyphicon glyphicon-link"></i></small> Couterwallet 1</a>
                     </div>
                     <div class="form-group">
-                        <a href="https://counterwallet.coindaddy.io/" role="button" class="btn btn-lg btn-block btn-primary" target="_blank"><small><i class="glyphicon glyphicon-link"></i></small> Coindaddy.io</a>
+                        <a href="https://counterwallet.coindaddy.io/" role="button" class="btn btn-lg btn-block btn-primary" target="_blank"><small><i class="glyphicon glyphicon-link"></i></small> Couterwallet 2</a>
                     </div>
                 </div>
             </div>

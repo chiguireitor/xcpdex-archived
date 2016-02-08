@@ -1,3 +1,4 @@
+
 <tr>
 @if($title == 'Sell')
     <td><a href="{{ url(route('order', ['buy' => $asset, 'buy_qty' => unSatoshi($result['amount']), 'sell' => 'XCP', 'sell_qty' => unSatoshi($result['total']) ])) }}">{{ $result['price'] }}</a></td>

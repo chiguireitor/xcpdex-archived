@@ -12,11 +12,11 @@
                         <label for="getQuantityInput">Buy:</label>
                         <div class="row">
                             <div class="col-sm-6 col-xs-4">
-                                <input type="text" name="get_quantity" value="{{ ( isset($request) ? $request->buy_qty : old('get_quantity') ) }}" class="form-control input-lg" id="getQuantityInput" placeholder="0">
+                                <input type="text" name="get_quantity" value="{{ ( isset($request) && ! empty($request->buy_qty) ? $request->buy_qty : old('get_quantity') ) }}" class="form-control input-lg" id="getQuantityInput" placeholder="0">
                                 @if ($errors->has('get_quantity')) <p class="help-block">{{ $errors->first('get_quantity') }}</p> @endif
                             </div>
                             <div class="col-sm-6 col-xs-8" id="get_asset">
-                                <input type="text" name="get_asset" value="{{ ( isset($request) ? $request->buy : old('get_asset') ) }}" class="form-control input-lg typeahead" id="getAssetInput" placeholder="XCP" oninput="this.value=this.value.toUpperCase();">
+                                <input type="text" name="get_asset" value="{{ ( isset($request) && ! empty($request->buy) ? $request->buy : old('get_asset') ) }}" class="form-control input-lg typeahead" id="getAssetInput" placeholder="XCP" oninput="this.value=this.value.toUpperCase();">
                                 @if ($errors->has('get_asset')) <p class="help-block">{{ $errors->first('get_asset') }}</p> @endif
                             </div>
                         </div>
@@ -27,11 +27,11 @@
                         <label for="giveQuantityInput">Sell:</label>
                         <div class="row">
                             <div class="col-sm-6 col-xs-4">
-                                <input type="text" name="give_quantity" value="{{  ( isset($request) ? $request->sell_qty : old('give_quantity') ) }}" class="form-control input-lg" id="giveQuantityInput" placeholder="0">
+                                <input type="text" name="give_quantity" value="{{  ( isset($request) && ! empty($request->sell_qty) ? $request->sell_qty : old('give_quantity') ) }}" class="form-control input-lg" id="giveQuantityInput" placeholder="0">
                                 @if ($errors->has('give_quantity')) <p class="help-block">{{ $errors->first('give_quantity') }}</p> @endif
                             </div>
                             <div class="col-sm-6 col-xs-8" id="give_asset">
-                                <input type="text" name="give_asset" value="{{  ( isset($request) ? $request->sell : old('give_asset') ) }}" class="form-control input-lg typeahead" id="giveAssetInput" placeholder="XCP" oninput="this.value=this.value.toUpperCase();">
+                                <input type="text" name="give_asset" value="{{  ( isset($request) && ! empty($request->sell) ? $request->sell : old('give_asset') ) }}" class="form-control input-lg typeahead" id="giveAssetInput" placeholder="XCP" oninput="this.value=this.value.toUpperCase();">
                                 @if ($errors->has('give_asset')) <p class="help-block">{{ $errors->first('give_asset') }}</p> @endif
                             </div>
                         </div>

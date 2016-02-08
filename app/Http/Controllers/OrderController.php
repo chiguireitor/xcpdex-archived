@@ -29,6 +29,19 @@ class OrderController extends Controller
         $this->counterparty->authentication(env('CP_USER', 'rpc'), env('CP_PASS', '1234'));
     }
 
+    // New Orders
+
+    public function getOrders()
+    {
+        $orders = $this->counterparty->execute('get_orders', [
+            'order_by'  => 'block_index',
+            'order_dir' => 'desc',
+            'limit' => 100,
+        ]);
+
+        return view('orders', ['orders' => $orders]);
+    }
+
     // Order Form
 
     public function getOrder(Request $request)
@@ -67,7 +80,7 @@ class OrderController extends Controller
              */
             if ( $this->guardAgainstInsufficientBitcoinBalance($source) )
             {
-                return redirect()->route('order')->with('warning', 'Insufficient BTC at this address. At least 0.0001 BTC is required for fees.')->withInput();
+                return redirect()->route('order')->withInput()->with('warning', 'Insufficient BTC at this address. At least 0.0001 BTC is required for fees.');
             }
 
             /**
@@ -77,7 +90,7 @@ class OrderController extends Controller
             if ( $this->guardAgainstInsufficientAssetBalance($source, $give_asset, $give_quantity) )
             {
                 $give_quantity = unSatoshi($give_quantity);
-                return redirect()->route('order')->with('warning', "Insufficient {$give_asset} at this address. At least {$give_quantity} is required.")->withInput();
+                return redirect()->route('order')->withInput()->with('warning', "Insufficient {$give_asset} at this address. At least {$give_quantity} is required.");
             }
 
             /**
@@ -106,7 +119,7 @@ class OrderController extends Controller
         /**
         * Unknown Address
         */
-        return redirect()->route('order')->with('warning', "Your address: {$source} does not appear to be an actively used.")->withInput();
+        return redirect()->route('order')->withInput()->with('warning', "Your address: {$source} does not appear to be an actively used.");
     }
 
     // Order Result

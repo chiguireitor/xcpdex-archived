@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Order Generator')
+@section('title', 'Create Order')
 
 @section('description', 'Create a raw bitcoin transaction hex for your specific order requirements. Just sign and broadcast your hex to initiate the order.')
 
@@ -16,7 +16,7 @@
 @section('content')
 
     <div class="page-header">
-        <h1><small><i class="glyphicon glyphicon-credit-card"></i></small> Order Generator</h1>
+        <h1><small><i class="glyphicon glyphicon-edit"></i></small> Create Order</h1>
     </div>
 
     @include('forms.order')

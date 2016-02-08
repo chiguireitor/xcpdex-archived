@@ -1,3 +1,4 @@
+
 <tr>
     <td><a href="{{ url(route('asset', ['asset' => $result['base_asset']])) }}">{{ $result['base_asset'] }}</a></td>
 @if( $result['base_divisibility'] == 1 )
