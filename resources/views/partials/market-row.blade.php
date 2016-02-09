@@ -6,8 +6,8 @@
 @else
     <td><a href="https://counterpartychain.io/asset/{{ $result['base_asset'] }}" target="_blank">{{ number_format($result['supply']) }}</a></td>
 @endif
-    <td>{{ unSatoshi($result['volume']) }} XCP</td>
     <td>{{ round($result['price'], 4) }} XCP</td>
     <td class="{{ ( $result['progression'] < 0 ) ? 'text-danger' : 'text-success' }}">{{ $result['progression'] }}%</td>
     <td>{{ round($result['price_24h'], 4) }} XCP</td>
+    <td>{{ unSatoshi($result['volume']) }} XCP</td>
 </tr>

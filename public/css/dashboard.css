@@ -91,8 +91,8 @@ body {
   word-wrap: break-word;
 }
 
-#hitbtc-ticker {
-  margin-left: -5px;
+#markets thead {
+    cursor: pointer;
 }
 
 label {

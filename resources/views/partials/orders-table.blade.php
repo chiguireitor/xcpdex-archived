@@ -4,8 +4,8 @@
         <tr>
             <th>Block #</th>
             <th>Status</th>
-            <th>Buying</th>
             <th>Selling</th>
+            <th>Buying</th>
             <th>Source</th>
         </tr>
     </thead>

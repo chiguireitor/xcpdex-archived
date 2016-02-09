@@ -32,6 +32,9 @@ class AssetController extends Controller
 
     public function getAsset($asset)
     {
+        if ( $asset == 'XCP' )
+        return redirect()->route('home');
+
         /**
          * get_asset_info returns null
          * if an asset does not exist.
@@ -65,7 +68,7 @@ class AssetController extends Controller
             /**
              * Deliver the Goods
              */
-            return view('asset', compact('asset','buy_orders','sell_orders','order_matches'));
+            return view('asset', compact('asset','orders','buy_orders','sell_orders','order_matches'));
         }
 
         /**

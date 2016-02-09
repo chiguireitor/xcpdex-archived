@@ -5,9 +5,14 @@ function toSatoshi($value)
     return (int) ($value * 100000000);
 }
 
-function unSatoshi($value)
+function unSatoshi($originalValue)
 {
-    return (float) ($value / 100000000);
+    $value = (float) ($originalValue / 100000000);
+    if ( strpos($value, 'E-') !== false )
+    {
+        $value = $originalValue;
+    }
+    return $value;
 }
 
 function fixTimestamp($unix)
