@@ -2,11 +2,17 @@
 
 function toSatoshi($value)
 {
-    return (int) ($value * 100000000);
+    return bcmul($value, 100000000, 8);
 }
 
 function unSatoshi($originalValue)
 {
+    // Ideally - But I dont know which
+    // assets are divisible when I run
+    // this so the scientific notation
+    // is a catch right now soo hacky
+    // return bcdiv($value, 100000000, 8);
+
     $value = (float) ($originalValue / 100000000);
     if ( strpos($value, 'E-') !== false )
     {

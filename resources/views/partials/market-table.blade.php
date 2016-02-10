@@ -21,8 +21,12 @@
     </tbody>
 </table>
 </div>
+<hr />
 <div class="row">
-    <div class="col-sm-6">
-        <b>24h Total:</b> {{ unSatoshi($sum )}} XCP
+    <div class="col-sm-4">
+        <b>24h Total:</b> {{ round(unSatoshi($sum ), 2) }} XCP
+    </div>
+    <div class="col-sm-4">
+        <b>BTC:</b> {{ round($btc_price, 2) }} USD
     </div>
 </div>

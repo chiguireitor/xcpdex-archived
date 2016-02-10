@@ -55,4 +55,9 @@ Route::group(['middleware' => ['web']], function () {
         'uses' => 'AssetController@getAsset',
     ]);
 
+    Route::get('{asset1}/{asset2}', [
+        'as'   => 'book',
+        'uses' => 'AssetController@getBook',
+    ]);
+
 });

@@ -28,7 +28,7 @@ class AssetController extends Controller
         $this->counterparty->authentication(env('CP_USER', 'rpc'), env('CP_PASS', '1234'));
     }
 
-    // Asset Orders
+    // Asset Orders for XCP
 
     public function getAsset($asset)
     {
@@ -77,9 +77,60 @@ class AssetController extends Controller
         return redirect()->route('match')->with('warning', "{$asset} does not appear to be a valid Counterparty asset.");
     }
 
-    protected function getOrders($asset)
+    // Asset Orders
+
+    public function getBook($asset1, $asset2)
     {
-        return $this->counterblock->execute('get_market_orders', ['asset1' => $asset, 'asset2' => 'XCP']);
+        if ( $asset1 == 'XCP' )
+        return redirect()->route('asset', ['asset' => $asset2]);
+
+        /**
+         * get_asset_info returns null
+         * if an asset does not exist.
+         *
+         * So, I use it to ez validate.
+         */
+        $result1 = $this->counterparty->execute('get_asset_info', ['assets' => [$asset1]]);
+        $result2 = $this->counterparty->execute('get_asset_info', ['assets' => [$asset2]]);
+
+        if ( ! empty($result1) &&  ! empty($result2) )
+        {
+            /**
+             * Get Orders on Asset
+             */
+            $orders = $this->getOrders($asset1, $asset2); 
+
+            /**
+             * Get Buy Orders + Reverse Order
+             */
+            $buy_orders = array_reverse($this->filterOrders($orders, 'BUY'));
+
+            /**
+             * Get Sell Orders
+             */
+            $sell_orders = $this->filterOrders($orders, 'SELL');
+
+            /**
+             * Get Old Matches
+             */
+            $order_matches = $this->counterblock->execute('get_trade_history', ['asset1' => $asset1, 'asset2' => $asset2]);
+
+            /**
+             * Deliver the Goods
+             */
+            return view('book', compact('asset1','asset2','orders','buy_orders','sell_orders','order_matches'));
+        }
+
+        /**
+         * Asset not found
+         */
+        return redirect()->route('match')->with('warning', "{$asset1} or {$asset2} do not appear to be valid Counterparty assets.");
+    }
+
+
+    protected function getOrders($asset1, $asset2='XCP')
+    {
+        return $this->counterblock->execute('get_market_orders', ['asset1' => $asset1, 'asset2' => $asset2]);
     }
 
     protected function filterOrders($orders, $match)

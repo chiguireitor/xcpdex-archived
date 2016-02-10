@@ -29,6 +29,8 @@ class MarketController extends Controller
 
     public function getHomepage()
     {
+        $btc_price = $this->getBitcoinPrice();
+
         $markets = $this->counterblock->execute('get_markets_list');
 
         /**
@@ -43,9 +45,9 @@ class MarketController extends Controller
         /**
          * Hide Zero Volume
          */
-        $markets = array_filter($markets, function ($x) { return $x['volume'] > 0; });
+        $top_chart = array_filter($markets, function ($x) { return $x['volume'] > 0; });
 
-        return view('market', compact('markets'));
+        return view('market', compact('top_chart', 'leaderboard', 'btc_price'));
     }
 
     // Markets JSON
@@ -68,6 +70,14 @@ class MarketController extends Controller
         }
 
         return $available;
+    }
+
+    protected function getBitcoinPrice()
+    {
+        $Blockchain = new \Blockchain\Blockchain();
+        $btc_usd = $Blockchain->Rates->toBTC(1, 'USD');
+
+        return (1 / $btc_usd);
     }
 
 }
