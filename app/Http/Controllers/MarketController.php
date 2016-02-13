@@ -70,30 +70,6 @@ class MarketController extends Controller
         return view('market', compact('top_chart', 'leaderboard'));
     }
 
-    public function getLeaders()
-    {
-        /**
-         * Leardboard
-         */
-        $leaderboard = $this->counterblock->execute('get_market_info_leaderboard');
-
-        $leaderboard = $leaderboard['xcp'];
-
-        /**
-         * Sort by XCP Price
-         */
-        foreach ($leaderboard as $key => $row)
-        {
-            $price_as_xcp[$key] = $row['price_as_xcp'];
-        }
-        array_multisort($price_as_xcp, SORT_ASC, $leaderboard);
-
-        /**
-         * Show Results
-         */
-        return $leaderboard[];
-    }
-
     // Markets JSON
 
     public function getMarkets()

@@ -7,11 +7,6 @@ Route::group(['middleware' => ['web']], function () {
         'uses' => 'MarketController@getHomepage',
     ]);
 
-    Route::get('/leaderboard', [
-        'as'   => 'leaders',
-        'uses' => 'MarketController@getLeaders',
-    ]);
-
     Route::get('json', [
         'as'   => 'markets',
         'uses' => 'MarketController@getMarkets',
