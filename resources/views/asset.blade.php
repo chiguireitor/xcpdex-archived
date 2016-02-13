@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', "{$asset} - Order Book Prices")
+@section('title', "{$asset} - Order Book")
 
 @section('description', 'There are ' .  count($orders) . ' buy and/or sell orders for ' . $asset . ' on the Counterparty XCP decentralized exchange. ')
 

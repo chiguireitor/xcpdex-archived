@@ -58,10 +58,10 @@ class OrderController extends Controller
          * to readers of the source code.
          */
         $get_asset = $request->get_asset;
-        $get_quantity = toSatoshi($request->get_quantity);
+        $get_quantity = (int) toSatoshi($request->get_quantity);
 
         $give_asset = $request->give_asset;
-        $give_quantity = toSatoshi($request->give_quantity);
+        $give_quantity = (int) toSatoshi($request->give_quantity);
 
         $source = $request->source;
         $expiration = (int) $request->expiration;
